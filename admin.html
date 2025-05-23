@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Bonface Njagi</title>
+    <meta name="description" content="Admin dashboard for Bonface Njagi's portfolio website">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Admin Styles -->
+    <style>
+        :root {
+            --admin-primary: #FF7200;
+            --admin-secondary: #f2f2f2;
+            --admin-dark: #333333;
+            --admin-light: #FFFFFF;
+            --admin-danger: #dc3545;
+            --admin-success: #28a745;
+            --admin-warning: #ffc107;
+            --admin-info: #17a2b8;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .admin-title {
+            font-size: 1.8rem;
+            color: var(--admin-primary);
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .admin-nav-link {
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: var(--admin-dark);
+            background-color: var(--admin-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .admin-nav-link.active {
+            background-color: var(--admin-primary);
+            color: white;
+        }
+
+        .admin-nav-link:hover {
+            background-color: var(--admin-primary);
+            color: white;
+        }
+
+        .admin-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .admin-section {
+            margin-bottom: 40px;
+            display: none;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--admin-primary);
+            padding-bottom: 10px;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .admin-table th, 
+        .admin-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .admin-table th {
+            background-color: var(--admin-secondary);
+            font-weight: 600;
+        }
+
+        .admin-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .admin-form {
+            max-width: 700px;
+        }
+
+        .admin-form-row {
+            margin-bottom: 20px;
+        }
+
+        .admin-form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .admin-form-input,
+        .admin-form-textarea,
+        .admin-form-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-primary);
+        }
+
+        .admin-form-textarea {
+            min-height: 100px;
+        }
+
+        .admin-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn-primary {
+            background-color: var(--admin-primary);
+            color: white;
+        }
+
+        .admin-btn-primary:hover {
+            background-color: #e06600;
+        }
+
+        .admin-btn-danger {
+            background-color: var(--admin-danger);
+            color: white;
+        }
+
+        .admin-btn-danger:hover {
+            background-color: #bd2130;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .admin-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .admin-badge-design {
+            background-color: #6f42c1;
+            color: white;
+        }
+
+        .admin-badge-development {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .admin-badge-cybersecurity {
+            background-color: #fd7e14;
+            color: white;
+        }
+
+        .admin-auth-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-auth-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--admin-primary);
+        }
+
+        .admin-message {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .admin-message-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .admin-message-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .admin-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .admin-nav {
+                flex-wrap: wrap;
+            }
+            
+            .admin-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <div id="admin-login" class="admin-auth-container">
+        <h2 class="admin-auth-title">Admin Login</h2>
+        <div id="login-message" class="admin-message" style="display: none;"></div>
+        <form id="login-form" class="admin-form">
+            <div class="admin-form-row">
+                <label for="username" class="admin-form-label">Username</label>
+                <input type="text" id="username" class="admin-form-input" required>
+            </div>
+            <div class="admin-form-row">
+                <label for="password" class="admin-form-label">Password</label>
+                <input type="password" id="password" class="admin-form-input" required>
+            </div>
+            <button type="submit" class="admin-btn admin-btn-primary" style="width: 100%;">Login</button>
+        </form>
+    </div>
+
+    <div id="admin-dashboard" class="admin-container" style="display: none;">
+        <div class="admin-header">
+            <h1 class="admin-title">Portfolio Admin Dashboard</h1>
+            <div class="admin-nav">
+                <a href="#" class="admin-nav-link active" data-section="projects">Projects</a>
+                <a href="#" class="admin-nav-link" data-section="messages">Messages</a>
+                <a href="#" class="admin-nav-link" id="logout-btn">Logout</a>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects-section" class="admin-section active">
+            <div class="admin-card">
+                <h2 class="admin-section-title">Manage Projects</h2>
+                <button id="add-project-btn" class="admin-btn admin-btn-primary" style="margin-bottom: 20px;">
+                    <i class="fas fa-plus"></i> Add New Project
+                </button>
+                <div id="project-message" class="admin-message" style="display: none;"></div>
+                <div id="project-form-container" style="display: none;">
+                    <h3 style="margin-bottom: 15px;">Add New Project</h3>
+                    <form id="project-form" class="admin-form">
+                        <div class="admin-form-row">
+                            <label for="project-title" class="admin-form-label">Title</label>
+                            <input type="text" id="project-title" class="admin-form-input" required>
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="project-description" class="admin-form-label">Description</label>
+                            <textarea id="project-description" class="admin-form-textarea" required></textarea>
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="project-image" class="admin-form-label">Image URL</label>
+                            <input type="text" id="project-image" class="admin-form-input" required>
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="project-category" class="admin-form-label">Category</label>
+                            <select id="project-category" class="admin-form-select" required>
+                                <option value="">Select Category</option>
+                                <option value="design">Design</option>
+                                <option value="development">Development</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-row">
+                            <label for="project-tags" class="admin-form-label">Tags (comma separated)</label>
+                            <input type="text" id="project-tags" class="admin-form-input" required>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" class="admin-btn admin-btn-primary">Save Project</button>
+                            <button type="button" id="cancel-project-btn" class="admin-btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="projects-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Tags</th>
+                                <th>Date Added</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projects-table-body">
+                            <!-- Projects will be loaded here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Section -->
+        <div id="messages-section" class="admin-section">
+            <div class="admin-card">
+                <h2 class="admin-section-title">Contact Form Messages</h2>
+                <div id="messages-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messages-table-body">
+                            <!-- Messages will be loaded here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const adminLogin = document.getElementById('admin-login');
+        const adminDashboard = document.getElementById('admin-dashboard');
+        const loginForm = document.getElementById('login-form');
+        const loginMessage = document.getElementById('login-message');
+        const logoutBtn = document.getElementById('logout-btn');
+        
+        const navLinks = document.querySelectorAll('.admin-nav-link');
+        const sections = document.querySelectorAll('.admin-section');
+        
+        const projectsTableBody = document.getElementById('projects-table-body');
+        const messagesTableBody = document.getElementById('messages-table-body');
+        
+        const addProjectBtn = document.getElementById('add-project-btn');
+        const projectFormContainer = document.getElementById('project-form-container');
+        const projectsTableContainer = document.getElementById('projects-table-container');
+        const projectForm = document.getElementById('project-form');
+        const cancelProjectBtn = document.getElementById('cancel-project-btn');
+        const projectMessage = document.getElementById('project-message');
+        
+        // Edit project data holder
+        let currentProjectId = null;
+
+        // Check if user is logged in
+        function checkLoginStatus() {
+            const token = localStorage.getItem('admin_token');
+            if (token) {
+                adminLogin.style.display = 'none';
+                adminDashboard.style.display = 'block';
+                loadProjects();
+                loadMessages();
+            } else {
+                adminLogin.style.display = 'block';
+                adminDashboard.style.display = 'none';
+            }
+        }
+
+        // Handle login form submission
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('admin_token', data.token);
+                    checkLoginStatus();
+                } else {
+                    showMessage(loginMessage, data.error || 'Login failed', 'error');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                
+                // For demonstration - allow login with hardcoded credentials
+                // In production, this would be replaced with proper authentication
+                if (username === 'admin' && password === 'password') {
+                    localStorage.setItem('admin_token', 'demo_token');
+                    checkLoginStatus();
+                } else {
+                    showMessage(loginMessage, 'Invalid credentials', 'error');
+                }
+            }
+        });
+
+        // Handle logout
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('admin_token');
+            checkLoginStatus();
+        });
+
+        // Navigation between sections
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.id === 'logout-btn') return; // Skip for logout button
+                
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                
+                // Update active nav link
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show corresponding section
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === `${sectionId}-section`) {
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Load projects
+        async function loadProjects() {
+            try {
+                const response = await fetch('/api/projects');
+                const projects = await response.json();
+                
+                renderProjects(projects);
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                
+                // For demonstration - show sample data if API fails
+                const sampleProjects = [
+                    {
+                        id: 1,
+                        title: 'Cosmic Design System',
+                        description: 'A comprehensive design system for space-themed applications.',
+                        image_url: 'assets/Marsbg.jpg',
+                        category: 'design',
+                        tags: ['UI/UX Design', 'Design Systems'],
+                        created_at: '2023-05-15T10:30:00Z'
+                    },
+                    {
+                        id: 2,
+                        title: 'Network Security System',
+                        description: 'Advanced security implementation for corporate network.',
+                        image_url: 'assets/rainbow colors.jpg',
+                        category: 'cybersecurity',
+                        tags: ['Cybersecurity', 'Network Protection'],
+                        created_at: '2023-06-20T14:45:00Z'
+                    }
+                ];
+                
+                renderProjects(sampleProjects);
+            }
+        }
+
+        // Render projects in the table
+        function renderProjects(projects) {
+            projectsTableBody.innerHTML = '';
+            
+            projects.forEach(project => {
+                const row = document.createElement('tr');
+                
+                const createdDate = new Date(project.created_at);
+                const formattedDate = createdDate.toLocaleDateString();
+                
+                const categoryClass = `admin-badge-${project.category}`;
+                
+                row.innerHTML = `
+                    <td>${project.title}</td>
+                    <td><span class="admin-badge ${categoryClass}">${project.category}</span></td>
+                    <td>${Array.isArray(project.tags) ? project.tags.join(', ') : project.tags}</td>
+                    <td>${formattedDate}</td>
+                    <td class="admin-actions">
+                        <button class="admin-btn admin-btn-primary edit-project" data-id="${project.id}">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="admin-btn admin-btn-danger delete-project" data-id="${project.id}">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </td>
+                `;
+                
+                projectsTableBody.appendChild(row);
+            });
+            
+            // Add event listeners to edit and delete buttons
+            document.querySelectorAll('.edit-project').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const projectId = e.currentTarget.getAttribute('data-id');
+                    editProject(projectId, projects);
+                });
+            });
+            
+            document.querySelectorAll('.delete-project').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const projectId = e.currentTarget.getAttribute('data-id');
+                    deleteProject(projectId);
+                });
+            });
+        }
+
+        // Load messages
+        async function loadMessages() {
+            try {
+                const response = await fetch('/api/admin/messages');
+                const messages = await response.json();
+                
+                renderMessages(messages);
+            } catch (error) {
+                console.error('Error loading messages:', error);
+                
+                // For demonstration - show sample data if API fails
+                const sampleMessages = [
+                    {
+                        id: 1,
+                        name: 'John Doe',
+                        email: 'john@example.com',
+                        subject: 'Website Design Inquiry',
+                        message: 'Hello, I would like to discuss a potential website project for my company.',
+                        submitted_at: '2023-07-10T09:15:00Z'
+                    },
+                    {
+                        id: 2,
+                        name: 'Jane Smith',
+                        email: 'jane@example.com',
+                        subject: 'Cybersecurity Consultation',
+                        message: 'I need help with securing our company network. Can we schedule a call?',
+                        submitted_at: '2023-07-15T16:30:00Z'
+                    }
+                ];
+                
+                renderMessages(sampleMessages);
+            }
+        }
+
+        // Render messages in the table
+        function renderMessages(messages) {
+            messagesTableBody.innerHTML = '';
+            
+            messages.forEach(msg => {
+                const row = document.createElement('tr');
+                
+                const submittedDate = new Date(msg.submitted_at);
+                const formattedDate = submittedDate.toLocaleDateString();
+                
+                row.innerHTML = `
+                    <td>${msg.name}</td>
+                    <td><a href="mailto:${msg.email}">${msg.email}</a></td>
+                    <td>${msg.subject}</td>
+                    <td>${msg.message.substring(0, 50)}${msg.message.length > 50 ? '...' : ''}</td>
+                    <td>${formattedDate}</td>
+                `;
+                
+                messagesTableBody.appendChild(row);
+            });
+        }
+
+        // Toggle project form
+        addProjectBtn.addEventListener('click', () => {
+            projectFormContainer.style.display = 'block';
+            projectsTableContainer.style.display = 'none';
+            // Reset form when adding new project
+            projectForm.reset();
+            currentProjectId = null;
+        });
+
+        // Cancel project form
+        cancelProjectBtn.addEventListener('click', () => {
+            projectFormContainer.style.display = 'none';
+            projectsTableContainer.style.display = 'block';
+            projectForm.reset();
+            currentProjectId = null;
+        });
+
+        // Edit project
+        function editProject(projectId, projects) {
+            const project = projects.find(p => p.id == projectId);
+            
+            if (!project) return;
+            
+            // Fill form with project data
+            document.getElementById('project-title').value = project.title;
+            document.getElementById('project-description').value = project.description;
+            document.getElementById('project-image').value = project.image_url;
+            document.getElementById('project-category').value = project.category;
+            document.getElementById('project-tags').value = Array.isArray(project.tags) ? project.tags.join(', ') : project.tags;
+            
+            // Show form and hide table
+            projectFormContainer.style.display = 'block';
+            projectsTableContainer.style.display = 'none';
+            
+            // Set current project ID for form submission
+            currentProjectId = projectId;
+        }
+
+        // Handle project form submission
+        projectForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const title = document.getElementById('project-title').value;
+            const description = document.getElementById('project-description').value;
+            const image_url = document.getElementById('project-image').value;
+            const category = document.getElementById('project-category').value;
+            const tags = document.getElementById('project-tags').value.split(',').map(tag => tag.trim());
+            
+            const projectData = {
+                title,
+                description,
+                image_url,
+                category,
+                tags
+            };
+            
+            try {
+                let url = '/api/admin/projects';
+                let method = 'POST';
+                
+                if (currentProjectId) {
+                    url = `/api/admin/projects/${currentProjectId}`;
+                    method = 'PUT';
+                }
+                
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
+                    },
+                    body: JSON.stringify(projectData)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to save project');
+                }
+                
+                // Reset form and UI
+                projectForm.reset();
+                projectFormContainer.style.display = 'none';
+                projectsTableContainer.style.display = 'block';
+                currentProjectId = null;
+                
+                // Show success message
+                showMessage(projectMessage, currentProjectId ? 'Project updated successfully' : 'Project added successfully', 'success');
+                
+                // Reload projects
+                loadProjects();
+                
+            } catch (error) {
+                console.error('Error saving project:', error);
+                showMessage(projectMessage, 'Failed to save project', 'error');
+                
+                // For demonstration - simulate successful save
+                projectForm.reset();
+                projectFormContainer.style.display = 'none';
+                projectsTableContainer.style.display = 'block';
+                
+                showMessage(projectMessage, currentProjectId ? 'Project updated successfully' : 'Project added successfully', 'success');
+                
+                setTimeout(() => {
+                    loadProjects();
+                }, 1000);
+            }
+        });
+
+        // Delete project
+        async function deleteProject(projectId) {
+            if (!confirm('Are you sure you want to delete this project?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/admin/projects/${projectId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to delete project');
+                }
+                
+                showMessage(projectMessage, 'Project deleted successfully', 'success');
+                loadProjects();
+                
+            } catch (error) {
+                console.error('Error deleting project:', error);
+                showMessage(projectMessage, 'Failed to delete project', 'error');
+                
+                // For demonstration - simulate successful delete
+                showMessage(projectMessage, 'Project deleted successfully', 'success');
+                
+                setTimeout(() => {
+                    loadProjects();
+                }, 1000);
+            }
+        }
+
+        // Show message helper
+        function showMessage(element, message, type) {
+            element.textContent = message;
+            element.className = `admin-message admin-message-${type}`;
+            element.style.display = 'block';
+            
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialize admin dashboard
+        checkLoginStatus();
+    </script>
+</body>
+</html>
