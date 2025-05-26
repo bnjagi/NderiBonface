@@ -284,7 +284,7 @@ const downloadBtn = document.querySelector('.download .btn');
 if (downloadBtn) {
     downloadBtn.addEventListener('click', function(e) {
         // In a real application, you would have a real ZIP file to download
-        alert('Download Succesful!');
+        alert('You Are About to Download My CV!');
     });
 }
 
