@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonface Njagi | Portfolio</title>
+    <meta name="description" content="Professional portfolio of Bonface Njagi, a specialist in graphic design, web development, and cybersecurity from Kenya.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#home">Bonface<span>  Njagi</span></a>
+                </div>
+                <div class="nav-links" id="navLinks">
+                    <ul>
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#work" class="nav-link">Work</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="fade-in">Hello, I'm <span class="highlight">Bonface</span></h2>
+                        <h1 class="fade-in delay-1">Bringing design to life through code</h1>
+                        <p class="fade-in delay-2">I craft engaging digital experiences through graphic design, web development, and cybersecurity expertise that help businesses connect with their audience.</p>
+                        <div class="hero-buttons fade-in delay-3">
+                            <a href="#work" class="btn btn-primary">View Work</a>
+                            
+                        </div>
+                    </div>
+                    <div class="hero-image fade-in delay-4">
+                        <img src="assets/njagi2.png" alt="Bonface Njagi">
+                        <p>Creating Exceptional Digital Experiences.</p>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <div class="underline"></div>
+                    <p>I'm Bonface Njagi from Chuka, Tharaka Nithi County, Kenya. My passion lies in creating exceptional digital experiences through design and technology.</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>My Journey</h3>
+                        <p>With a background in Information Technology and 9+ years of experience in the digital space, I've developed a keen eye for design and a deep understanding of user experience. 
+                        My approach combines creativity with technical expertise to deliver projects that exceed expectations.</p>
+                        <p>I specialize in creating responsive websites, interactive user interfaces, and implementing secure systems that help businesses thrive in the digital landscape.</p>
+                        
+                        <div class="skills-container">
+                            <div class="skills-column">
+                                <h4>Design Skills</h4>
+                                <ul class="skills-list">
+                                    <li><span class="skill-dot"></span>UI/UX Design</li>
+                                    <li><span class="skill-dot"></span>Graphic Design</li>
+                                    <li><span class="skill-dot"></span>Branding</li>
+                                    <li><span class="skill-dot"></span>Visual Communication</li>
+                                </ul>
+                            </div>
+                            <div class="skills-column">
+                                <h4>Technical Skills</h4>
+                                <ul class="skills-list">
+                                    <li><span class="skill-dot"></span>HTML/CSS/JavaScript</li>
+                                    <li><span class="skill-dot"></span>Web Development</li>
+                                    <li><span class="skill-dot"></span>Cybersecurity</li>
+                                    <li><span class="skill-dot"></span>Network Security</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/laptop%20bg.jpg" alt="Workspace with laptop and notepad">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="work">
+            <div class="container">
+                <div class="section-header">
+                    <h2>My Work</h2>
+                    <div class="underline"></div>
+                    <p>Here's a selection of my recent projects across various industries and technologies.</p>
+                </div>
+
+                <div class="portfolio-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                    <button class="filter-btn" data-filter="development">Development</button>
+                    <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-category="design">
+                        <div class="portfolio-img">
+                            <img src="assets/Marsbg.jpg" alt="Cosmic Design System">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3>Cosmic Design System</h3>
+                                    <p>A comprehensive design system for space-themed applications.</p>
+                                    <a href="https://www.tajithrift.com" class="btn btn-sm btn-white" target="_blank">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <h3>Cosmic Design System</h3>
+                            <p>UI/UX Design, Design Systems</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="development">
+                        <div class="portfolio-img">
+                            <img src="assets/Car%20bg.jpg" alt="Automotive Excellence">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3>Automotive Excellence</h3>
+                                    <p>Premium car showcase website with interactive features.</p>
+                                    <a href="https://www.tajithrift.com" class="btn btn-sm btn-white" target="_blank">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <h3>Automotive Excellence</h3>
+                            <p>Web Development, 3D Integration</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="design">
+                        <div class="portfolio-img">
+                            <img src="assets/lamp%20bg.jpg" alt="Illuminate Outdoors">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3>Illuminate Outdoors</h3>
+                                    <p>Brand identity for a premium outdoor lighting company.</p>
+                                    <a href="https://www.tajithrift.com" class="btn btn-sm btn-white" target="_blank">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <h3>Illuminate Outdoors</h3>
+                            <p>Branding, Identity Design</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="development">
+                        <div class="portfolio-img">
+                            <img src="assets/desktopimg.jpg" alt="Shop Redesign">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3>E-commerce Platform</h3>
+                                    <p>Complete UI overhaul for an established e-commerce platform.</p>
+                                    <a href="https://www.tajithrift.com" class="btn btn-sm btn-white">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <h3>E-commerce Platform</h3>
+                            <p>UI/UX Design, Web Development</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="cybersecurity">
+                        <div class="portfolio-img">
+                            <img src="assets/rainbow%20colors.jpg" alt="Security System">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3>Network Security System</h3>
+                                    <p>Advanced security implementation for corporate network.</p>
+                                    <a href="https://www.tajithrift.com" class="btn btn-sm btn-white">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <h3>Network Security System</h3>
+                            <p>Cybersecurity, Network Protection</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="cybersecurity">
+                        <div class="portfolio-img">
+                            <img src="assets/Marsbg.jpg" alt="Data Protection">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-info">
+                                    <h3>Data Protection Suite</h3>
+                                    <p>Comprehensive data protection solution for businesses.</p>
+                                    <a href="https://www.tajithrift.com" class="btn btn-sm btn-white" target="_blank">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <h3>Data Protection Suite</h3>
+                            <p>Cybersecurity, Data Encryption</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://www.tajithrift.com" class="btn btn-outline view-all" target="_blank">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="underline"></div>
+                    <p>Have a project in mind or want to discuss a potential collaboration? I'd love to hear from you!</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Location</h4>
+                                <p>Chuka Town, Tharaka Nithi County, Kenya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Email</h4>
+                                <p>bonfacenjaginderi@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-details">
+                                <h4>Phone</h4>
+                                <p>+254 701 489 539</p>
+                            </div>
+                        </div>
+
+                        <h3>Connect With Me</h3>
+                        <div class="social-icons">
+                            <a href="https://x.com/home" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                          <a href="https://github.com" target="_blank" class="github"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download">
+            <div class="container">
+                <div class="download-content">
+                    <h2>Download My Portfolio </h2>
+                    <p>Do You want My portfolio in PDF format, Get it Here!.</p>
+                    <a href="attached_assets/bonface-cv.docx" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download My CV
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home">Bonface<span>  Njagi</span></a>
+                  
+                    <p>Crafted by KeyClick Agency Solution (KAS)</p>
+                </div>
+                
+                <div class="footer-social">
+                    <div class="social-icons">
+                        <a href="https://x.com/home" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com" target="_blank" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p>&copy; <span id="year"></span> Bonface Njagi. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
